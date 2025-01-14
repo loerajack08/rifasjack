@@ -1,0 +1,138 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centrar la lista de boletos y convertirla en una grilla responsiva */
+.boletos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Columnas automáticas */
+    gap: 10px; /* Espacio entre los elementos */
+    margin: 10px auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* Estilo para los elementos de la lista (como celdas de tabla) */
+.boleto-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius:8px;
+    background-color: #f4f4f4;
+    cursor: pointer; /* Indica que se puede hacer clic */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo para el número del boleto */
+.numero-boleto {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Estilo para el estado del boleto */
+.status-boleto {
+    padding: 6px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+}
+
+/* Efecto de hover en los elementos */
+.boleto-item:hover {
+    transform: scale(1.05); /* Efecto de ampliación */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Efecto de selección al hacer clic */
+.boleto-item.selected {
+    border-color: #2196F3;
+    background-color: #e0f7fa; 
+}
+
+/* Colores del texto según el estado del boleto */
+.boleto-item .status-boleto {
+    background-color: #e0f7e0; /* Libre */
+    color: #388E3C; /* Verde para libre */
+}
+
+.boleto-item .status-boleto:not([style*="background-color: #4CAF50"]) {
+    background-color: #f8d7da; /* No disponible */
+    color: #D32F2F; /* Rojo para no disponible */
+}
+.boleto-checkbox{
+    padding: 20px 30px;
+    color: #D32F2F;
+    border-radius: 20%;
+}
+.boleto-checkbox {
+    display: none; /* Oculta el checkbox original */
+}
+
+.boleto-item label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boleto-item label:hover {
+    transform: scale(1.05); /* Efecto de ampliación */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Cambia el estilo cuando el checkbox está marcado */
+.boleto-checkbox:checked + label {
+    border-color: #2196F3;
+    background-color: #e0f7fa;
+}
+
+.btn-whatsapp {
+    background-color: #2196F3; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 15px 20px; /* Tamaño del botón */
+    border: none; /* Quitar bordes */
+    border-radius: 10%; /* Forma circular */
+    font-size: 16px; /* Tamaño del texto */
+    position: fixed; /* Posición fija */
+    right: 20px; /* Separación del borde derecho */
+    top: 50vh; /* Centrado vertical en la pantalla */
+    transform: translateY(-50%); /* Ajuste para centrar */
+    cursor: pointer; /* Cursor en forma de mano */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    display: flex; /* Centrado del texto o contenido */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efectos */
+}
+
+
+.btn-whatsapp:hover:not(:disabled) {
+    background-color: #1e88e5; /* Color más oscuro */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
+}
+
+
+.btn-whatsapp:disabled {
+    background-color: #b0bec5; /* Color gris deshabilitado */
+    cursor: not-allowed; /* Cursor no permitido */
+    box-shadow: none; /* Sin sombra */
+}
+
+
+

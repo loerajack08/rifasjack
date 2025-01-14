@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/principal.css') }}">
+    <title> Rifas Dominguez  Web SA. de C.V.</title>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo"></div>
+
+    <div class="menu-button"  aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="menu" id="menu">
+        <li><a href="{{ path('pagos') }}">METODOS DE PAGO </a></li>
+        <li><a href="{{ ('BOLETOS') }}">BOLETOS DISPONIBLES</a></li>
+    </ul>
+</nav>
+
+
+<main>
+    {% block body %}{% endblock %}
+</main>
+    
+    <header>
+        <h2 class="title">Rifas Dominguez  SA. de C.V.</h2> <!-- Corrige "clas" a "class" -->
+    </header>
+    
+    <div class="img-container">
+      <img src="{{ ('rs200img/1640-x-997-con-luz.webp') }}" alt="Imagen centrada">
+    </div>
+
+
+
+    <main>
+
+        <section id="quienes-somos">
+            <div class="carrusel">
+        <div class="imagenes">
+            <img src="{{ ('rs200img/5780473-8rs2002.jpg') }}" alt="Imagen1">
+            <img src="{{ ('rs200img/RS200-P1-600x600.png') }}" alt="Imagen2">
+            <img src="{{ ('rs200img/73rs2003.png') }}" alt="Imagen3">       
+            
+        </div> 
+    </div>
+             <p>
+     
+              1 Boleto Por $30 <br>
+              4 Boletos Por $110 <br>
+              8 Boletos Por $200 <br>
+              20 Boletos Por $500 <br>
+              40 Boletos Por $1000 <br>
+              100 Boletos Por $5000 <br>
+
+             </p>
+              <h2>Contacto</h2>
+
+            <div class="botoncontacto">
+   
+              <a href="https://wa.me/6682192407" class="shadow-effect numer">Contáctanos</a>
+              <a href="https://wa.me/6682490923" class="shadow-effect numer">Contáctanos</a>
+            </div>
+
+
+            <h2>Quiénes Somos</h2>
+            <p>¡Bienvenido A Loera Soluciones Web S. de C.V.!<br>
+             Somos Jack octavio Loera Hernandez Y Adair Cruz Dominguez, empremdedores<br>
+             apacionados por ofrecer experiencias emocionantes y accsibles  a travez de rifas <br> 
+             de motocicletas y autos .Con sede en los Mochis Sinaloa Mexico,nos <br> 
+             dedicamos  a crear oportunidades unicas para que algunas personas <br> 
+             puedan  cumplir ese sueño de tener si propia moto o auto  extraudinario <br> 
+             por una fraccion de su costo.</p>
+        </section>
+
+         <section id="desarrollo-personalizado">
+            <h2>Mision</h2>
+            <p>Nuestra mision es brindar confianza,trasparencia y la mayor divercion posible <br>
+             asegurando que cada rifa sea un proceso justo y emocionante <br>
+              creemos en la importancia de construir relaciones solidas con un<br>
+              servicio responsable donde cada detalle es diseñado para superar las <br>
+              espectativas de quienes confian en nosotros .</p>
+        </section> 
+
+
+        <section id="ficha-tecnica">
+            <h2>Ficha tecnica</h2>
+            <p>Pulsar RS 200<br>
+        <br>
+        Motor<br>
+        Tipo: Monocilíndrico 4 tiempos SOHC DTS-i<br>
+        Transmisión: Constante, 6 velocidades<br>
+        Cilindrada: 199.50 cc<br>
+        Alimentación: Inyección Electrónica<br>
+        Potencia Máxima: 24.50 HP @ 9,750 RPM<br>
+        Torque Máximo: 18.30 NM @ 8,000 RPM<br>
+        Refrigeración: Enfriado por líquido<br>
+        Arranque: Eléctrico<br>
+        <br>
+        Chasis<br>
+        Tipo: Perimetral<br>
+        Suspensión delantera: Telescópica con bocina antifricción y 120 mm de recorrido<br>
+        Suspensión trasera: Amortiguador monoshock nitrox con 110 mm de recorrido<br>
+        Llanta delantera: 100/80-r17",52P sin cámara<br>
+        Llanta trasera: 130/70-r17",61P sin cámara<br>
+        Freno delantero: Disco sencillo de 300 mm de diámetro con ABS<br>
+        Freno trasero: Disco sencillo de 230 mm de diámetro<br>
+        Capacidad tanque lleno: 13 L<br>
+        <br>
+        Peso y dimensiones<br>
+        Peso en seco: 165 kg<br>
+        Longitud total: 1,999 mm<br>
+        Ancho total: 759 mm<br>
+        Altura del asiento: 810 mm<br>
+        Distancia entre ejes: 1,352 mm<br>
+        Distancia min. al suelo: 157 mm<br>
+        <br>
+        Eléctricos<br>
+        Sistema eléctrico: 12V. (DC)<br>
+        Batería: 12V. 8Ah (VRLA)<br>
+        Faro Frontal: Doble proyector<br>
+        
+                    </p>
+                </section>
+            </main>
+
+
+    <section>
+        <footer class="ultimo">
+            <p>&copy;Todos los derechos reservados 2024</p>
+        </footer>
+    </section>
+    
+</body>
+</html>
+   

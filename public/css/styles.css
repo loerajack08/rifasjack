@@ -1,0 +1,107 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Navbar Styles */
+.navbar {
+    width: 90%;
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.menu-button {
+    display: none;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+}
+
+/* Contenido centrado y en grande */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 36px; /* Tamaño grande del texto */
+    margin-top: 80px;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Resaltar números */
+.highlight {
+    font-size: 48px;
+    font-weight: bold;
+    color: #4CAF50; /* Verde para resaltar */
+}
+
+/* Responsive Styles */
+@media (max-width: 1920px) {
+    .content {
+        font-size: 30px; /* Ajuste de tamaño en pantallas pequeñas */
+    }
+}
+
+/* Animations (Optional) */
+.menu-button span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+.menu-button.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}

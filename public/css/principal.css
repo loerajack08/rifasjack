@@ -1,0 +1,440 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #DC143C;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    height: 80vh; /* Ajusta el porcentaje según lo que necesites */
+
+}
+
+
+h2 {
+    text-align: center;
+    color: #9a9a9a;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* Estilo general del botón */
+
+    
+    .navbar {
+        display: flex;
+        justify-content: space-between; /* Para alinear el logo y el botón */
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        position: relative; /* Para que el menú se posicione relativo a este */
+    }
+    
+    /* Estilo del logo */
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    /* Menú de navegación */
+    .menu {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+    }
+    
+    .menu li {
+        margin: 0;
+    }
+    
+    .menu a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s;
+    }
+    
+    .menu a:hover {
+        color: #00bcd4;
+    }
+
+
+header {
+    background-color: #333333;
+    color: #e0e0e0;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #444444;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #e0e0e0;
+}
+.img-container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* Altura del contenedor igual a la ventana */
+}
+
+.img-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+#quienes-somos, #desarrollo-personalizado, #diseno-responsive, #ficha-tecnica {
+    text-align: center; /* Centrar el texto */
+    color: #000000; /* Cambiar color del texto a negro */
+}
+
+#quienes-somos p, #desarrollo-personalizado p, #diseno-responsive p, #ficha-tecnica p {
+    color: #000000; /* Cambiar el color de los párrafos a negro */
+}
+
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #efc4c4;
+    color: #e0e0e0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="reset"] {
+    background-color: #eee4e4;
+}
+
+button:hover {
+    background-color: #f2e4e4;
+}
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.botoncontacto {
+    display: flex; /* Cambia el grid a flex para alinear los botones en línea */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Reduce el espacio entre los botones */
+    margin-top: 20px; /* Ajusta el margen superior si es necesario */
+}
+
+.shadow-effect {
+    padding: 10px 20px; /* Ajusta el relleno para un diseño más compacto */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #bfcaca;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+.numer {
+    text-decoration: none;
+    color: #fffafa;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.numer:hover {
+    color: #000000;
+}
+
+/* Estilos para el footer */
+.ultimo {
+    background-color: white; /* Fondo blanco */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 20px; /* Espacio alrededor del texto */
+    font-size: 14px; /* Tamaño del texto */
+    border-top: 1px solid #ccc; /* Línea superior para separar el footer */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave en la parte superior */
+    margin-top: 30px; /* Espacio antes del footer */
+}
+
+/* Fondo blanco para la sección del footer */
+section {
+    background-color: white; /* Fondo blanco para la sección */
+    padding: 20px 0; /* Espacio alrededor del contenido */
+}
+
+/* Estilos responsivos */
+@media (max-width: 800px) {
+    form {
+        width: 90%;
+    }
+
+    .carrusel {
+        width: 100%; /* Ajusta el carrusel al ancho de la pantalla */
+    }
+
+    .imagenes img {
+        width: 100%; /* Asegura que las imágenes se ajusten al tamaño del carrusel */
+        height: auto; /* Mantiene la proporción de las imágenes */
+    }
+}
+
+/* Estilos para el carrusel de imágenes */
+.carrusel {
+    position: relative;
+    width: 300px; /* Ancho fijo, ajusta según sea necesario */
+    height: 300px; /* Alto fijo, ajusta según sea necesario */
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    margin: 20px auto; /* Centramos el carrusel */
+}
+
+.imagenes {
+    display: flex;
+    animation: slide 8s infinite; /* Cambia la duración para ajustar la velocidad */
+}
+
+.imagenes img {
+    width: 300px; /* Ancho de las imágenes, ajusta según sea necesario */
+    height: 300px; /* Alto de las imágenes, ajusta según sea necesario */
+    object-fit: cover; /* Mantiene la proporción de las imágenes */
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
+    75% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
