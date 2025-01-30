@@ -20,6 +20,12 @@
     </ul>
 </nav>
 
+<p id="demo"></p>
+
+    {% block javascripts %}
+        <script src="{{ asset('js/temporizador.js') }}"></script>
+    {% endblock %}
+
 
 <main>
     {% block body %}{% endblock %}
@@ -46,16 +52,15 @@
             
         </div> 
     </div>
-             <p>
-     
-              1 Boleto Por $30 <br>
-              4 Boletos Por $110 <br>
-              8 Boletos Por $200 <br>
-              20 Boletos Por $500 <br>
-              40 Boletos Por $1000 <br>
-              100 Boletos Por $5000 <br>
+            
+              <li><a href="{{ ('BOLETOS') }}">1 Boleto Por $30 </a></li>
+              <li><a href="{{ ('BOLETOS') }}">4 Boleto Por $100 </a></li>
+              <li><a href="{{ ('BOLETOS') }}">8 Boleto Por $200 </a></li>
+              <li><a href="{{ ('BOLETOS') }}">20 Boleto Por $500 </a></li>
+              <li><a href="{{ ('BOLETOS') }}">100 Boleto Por $2000 </a></li>
+        
 
-             </p>
+
               <h2>Contacto</h2>
 
             <div class="botoncontacto">

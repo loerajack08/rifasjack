@@ -1,4 +1,4 @@
-
+/* Reinicia los márgenes, los rellenos y el box-sizing */
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@
     align-items: center;
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius:8px;
+    border-radius: 8px;
     background-color: #f4f4f4;
     cursor: pointer; /* Indica que se puede hacer clic */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -55,25 +55,15 @@
     background-color: #e0f7fa; 
 }
 
-/* Colores del texto según el estado del boleto */
-.boleto-item .status-boleto {
-    background-color: #e0f7e0; /* Libre */
-    color: #388E3C; /* Verde para libre */
-}
 
-.boleto-item .status-boleto:not([style*="background-color: #4CAF50"]) {
-    background-color: #f8d7da; /* No disponible */
-    color: #D32F2F; /* Rojo para no disponible */
-}
-.boleto-checkbox{
-    padding: 20px 30px;
-    color: #D32F2F;
-    border-radius: 20%;
-}
+/* Estilos del checkbox */
 .boleto-checkbox {
     display: none; /* Oculta el checkbox original */
 }
 
+
+
+/* Estilos de la etiqueta asociada al checkbox */
 .boleto-item label {
     display: flex;
     flex-direction: column;
@@ -89,6 +79,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover sobre la etiqueta */
 .boleto-item label:hover {
     transform: scale(1.05); /* Efecto de ampliación */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
@@ -100,13 +91,14 @@
     background-color: #e0f7fa;
 }
 
+/* Estilo del botón de WhatsApp */
 .btn-whatsapp {
     background-color: #2196F3; /* Color de fondo */
     color: #fff; /* Color del texto */
-    padding: 15px 20px; /* Tamaño del botón */
+    padding: 10px 14px; /* Tamaño del botón */
     border: none; /* Quitar bordes */
     border-radius: 10%; /* Forma circular */
-    font-size: 16px; /* Tamaño del texto */
+    font-size: 14px; /* Tamaño del texto */
     position: fixed; /* Posición fija */
     right: 20px; /* Separación del borde derecho */
     top: 50vh; /* Centrado vertical en la pantalla */
@@ -121,18 +113,113 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efectos */
 }
 
-
+/* Efecto hover sobre el botón de WhatsApp */
 .btn-whatsapp:hover:not(:disabled) {
     background-color: #1e88e5; /* Color más oscuro */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
 }
 
-
+/* Estilo para el botón deshabilitado */
 .btn-whatsapp:disabled {
     background-color: #b0bec5; /* Color gris deshabilitado */
     cursor: not-allowed; /* Cursor no permitido */
     box-shadow: none; /* Sin sombra */
 }
 
+/* Estilo para el modal */
+.modal {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #dfcdcd; /* Fondo claro */
+    padding: 45px 45px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    width: 80%;
+    max-width: 850px; /* Tamaño máximo del modal */
+    border-radius: 30px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    text-align: center; /* Centra el texto dentro del modal */
+    font-family: 'Arial', sans-serif; /* Fuente legible */
+    color: #000000; /* Color del texto */
+    position: relative; /* Para elementos posicionados dentro del modal */
+}
+
+/* Botón de cerrar el modal */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #f80000;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Hover en el botón de cerrar */
+.close-button:hover {
+    color: #555;
+}
+
+/* Estilos de la clase close */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos del menú */
+.menupp1 {
+    color: #ffffff;
+    padding: 10px 14px;
+    background-color: #1e88e5;
+    font-size: 14px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: auto;
+}
+
+.busqueda {
+    width: 100%;
+    max-width: 400px; /* Limitar el ancho máximo */
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto; /* Centrar en pantallas más grandes */
+}
 
 
+
+/* Estilo para el título "Boletos Disponibles" */
+.disponibles_centro {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Alinea en la parte superior */
+    height: 10vh; /* Ajusta según el tamaño del contenedor */
+}

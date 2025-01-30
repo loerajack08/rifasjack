@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Boleto para Editar</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+</head>
+<body>
+    <h1>Seleccionar Boleto para Editar</h1>
+    <form action="{{ path('editar_boleto') }}" method="get">
+        <label for="numero_boleto">Número de Boleto:</label>
+        <select id="numero_boleto" name="id" required>
+            <option value="" disabled selected>Selecciona un boleto</option>
+            {% for boleto in boletos %}
+                <option value="{{ boleto.id }}">{{ boleto.numeroBoleto }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Editar</button>
+    </form>
+</body>
+</html>

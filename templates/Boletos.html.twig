@@ -5,41 +5,72 @@
     <link rel="stylesheet" href="{{ asset('css/boletos.css') }}">
     <title>Rifas Dominguez SA. de C.V.</title>
 </head>
+<body>
+    {% block body %}
+        <h1 class="disponibles_centro" id="hello_word">*  Boletos <br> Disponibles</h1>
 
-{% block body %}
-    <h1>Boletos Disponibles</h1>
-    <ul class="menu" id="menu">
-     <li><a href="{{ path('app_defaul') }}"> Regresar </a></li>
-    <ul/>
-    {% if boletos is not empty %}
-        <ul class="boletos-list">
-            {% for boleto in boletos %}
-                <li class="boleto-item" data-id="{{ boleto.id }}">
-                    <!-- Checkbox oculto -->
-                    <input type="checkbox" class="boleto-checkbox" id="boleto-{{ boleto.id }}" data-numero="{{ boleto.numeroBoleto }}">
-
-                    <!-- Etiqueta asociada al checkbox -->
-                    <label for="boleto-{{ boleto.id }}">
-                        <span class="numero-boleto">{{ boleto.numeroBoleto }}</span>
-                        <span class="status-boleto" 
-                            {% if boleto.status == true %} 
-                                style="background-color: #4CAF50; color: white;" 
-                            {% else %} 
-                                style="background-color: #f44336; color: white;" 
-                            {% endif %}>
-                            {{ boleto.status ? 'Libre' : 'No Disponible' }}
-                        </span>
-                    </label>
-                </li>
-            {% endfor %}
+        <ul class="menupp1" id="menu">
+            <li><a href="{{ path('app_defaul') }}">Regresar</a></li>
         </ul>
 
-        <button id="enviar-whatsapp" class="btn-whatsapp" disabled>Enviar a WhatsApp</button>
-    {% else %}
-        <p>No hay boletos disponibles.</p>
-    {% endif %}
-{% endblock %}
+        <input type="text" id="busqueda-boleto" placeholder="Buscar boleto por número" class="busqueda">
 
-{% block javascripts %}
-    <script src="{{ asset('js/boletos.js') }}"></script> 
-{% endblock %}
+        {% if boletos is not empty %}
+            <ul class="boletos-list">
+                {% for boleto in boletos %}
+                    <li class="boleto-item" data-id="{{ boleto.id }}">
+                        <!-- Checkbox oculto -->
+                        <input type="checkbox" class="boleto-checkbox" id="boleto-{{ boleto.id }}" 
+                               data-numero="{{ boleto.numeroBoleto }}" {% if boleto.status != 'libre' %}disabled{% endif %}>
+
+                        <!-- Etiqueta asociada al checkbox -->
+                        <label for="boleto-{{ boleto.id }}">
+                            <span class="numero-boleto">{{ boleto.numeroBoleto }}</span>
+                             <span class="status-boleto"
+                             {% if boleto.status == 'libre' %}
+                                 style="background-color:rgb(161, 195, 47); color: white;" 
+                             {% elseif boleto.status == 'pagado' %}
+                                 style="background-color:rgb(188, 7, 7); color: white; opacity: 100%; pointer-events: none;"
+                             {% elseif boleto.status == 'apartado' %}
+                                 style="background-color:rgb(211, 100, 10); color: white;" 
+                             {% else %}
+                                 style="background-color:rgb(76, 72, 72); color: white;" 
+                             {% endif %}>
+                             {{ boleto.status == 'libre' ? 'Libre' : (boleto.status == 'pagado' ? 'Pagado' : (boleto.status == 'apartado' ? 'Apartado' : 'No Disponible')) }}
+                         </span>
+                        </label>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay boletos disponibles.</p>
+        {% endif %}
+
+        <button id="enviar-whatsapp" class="btn-whatsapp" disabled>Apartar <br> Boletos</button>
+
+        <!-- Formulario emergente -->
+        <div id="formulario-emergente" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Completa tus datos</h2>
+                <form id="datos-form">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="cel">Teléfono:</label>
+                    <input type="tel" id="cel" name="cel" required pattern="[0-9]{10}" placeholder="10 dígitos">
+
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" required>
+
+                    <button type="submit">Enviar a WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('js/boletos.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

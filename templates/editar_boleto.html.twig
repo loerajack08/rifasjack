@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Boleto</title>
+</head>
+<body>
+    <h1>Editar Boleto: {{ boleto.numeroBoleto }}</h1>
+
+    <form action="{{ path('editar_boleto', {'id': boleto.id}) }}" method="post">
+        <label for="nombre_completo">Nombre Completo:</label>
+        <input type="text" id="nombre_completo" name="nombre_completo" value="{{ boleto.nombreCompleto is not null ? boleto.nombreCompleto : '' }}" required>
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" value="{{ boleto.ciudad }}" required>
+
+        <label for="status">Estado:</label>
+        <select id="status" name="status" required>
+            <option value="libre" {% if boleto.status == 'libre' %} selected {% endif %}>Libre</option>
+            <option value="apartado" {% if boleto.status == 'apartado' %} selected {% endif %}>Apartado</option>
+            <option value="pagado" {% if boleto.status == 'pagado' %} selected {% endif %}>Pagado</option>
+            <option value="no_disponible" {% if boleto.status == 'no_disponible' %} selected {% endif %}>No Disponible</option>
+        </select>
+
+        <label for="numero_celular">Número de Celular:</label>
+        <input type="tel" id="numero_celular" name="numero_celular" value="{{ boleto.numeroCelular }}">
+
+        <button type="submit">Actualizar Boleto</button>
+    </form>
+</body>
+</html>
