@@ -1,62 +1,50 @@
 /* Estilos generales */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #DC143C;
+    background-color: #DC143C; /* Fondo rojo */
     color: #e0e0e0;
     margin: 0;
     padding: 0;
-    height: 80vh; /* Ajusta el porcentaje según lo que necesites */
-
+    height: 100%; /* Asegura que el body ocupe el 100% de la pantalla */
 }
 
-
-h2 {
-    text-align: center;
-    color: #9a9a9a;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
 /* Estilo general del botón */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Para alinear el logo y el botón */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    position: relative; /* Para que el menú se posicione relativo a este */
+}
 
-    
-    .navbar {
-        display: flex;
-        justify-content: space-between; /* Para alinear el logo y el botón */
-        align-items: center;
-        padding: 10px 20px;
-        background-color: #333;
-        color: white;
-        position: relative; /* Para que el menú se posicione relativo a este */
-    }
-    
-    /* Estilo del logo */
-    .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-    
-    /* Menú de navegación */
-    .menu {
-        list-style: none;
-        display: flex;
-        gap: 15px;
-    }
-    
-    .menu li {
-        margin: 0;
-    }
-    
-    .menu a {
-        text-decoration: none;
-        color: white;
-        transition: color 0.3s;
-    }
-    
-    .menu a:hover {
-        color: #00bcd4;
-    }
+/* Estilo del logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
+/* Menú de navegación */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #00bcd4;
+}
 
 header {
     background-color: #333333;
@@ -72,17 +60,44 @@ header {
     letter-spacing: 3px;
     color: #e0e0e0;
 }
+
 .img-container {
     display: flex;
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
     height: 100vh; /* Altura del contenedor igual a la ventana */
+    width: 100vw; /* Asegura que el contenedor ocupe todo el ancho de la ventana */
+    margin: 0; /* Elimina cualquier margen adicional */
+    padding: 0; /* Elimina cualquier padding adicional */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    background-color: #DC143C; /* Fondo rojo (el mismo que en el body) */
+    overflow: visible; /* Asegura que el contenido pueda desplazarse */
 }
 
 .img-container img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Asegura que la imagen no se desborde en ancho */
+    height: 100%; /* Hace que la imagen ocupe toda la altura disponible */
+    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
 }
+
+
+#demo {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: rgb(158, 222, 30);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#demo:hover {
+    background-color: darkblue;
+}
+
 
 #quienes-somos, #desarrollo-personalizado, #diseno-responsive, #ficha-tecnica {
     text-align: center; /* Centrar el texto */
@@ -388,7 +403,6 @@ section {
     background-color: white; /* Fondo blanco para la sección */
     padding: 20px 0; /* Espacio alrededor del contenido */
 }
-
 /* Estilos responsivos */
 @media (max-width: 800px) {
     form {
@@ -401,7 +415,7 @@ section {
 
     .imagenes img {
         width: 100%; /* Asegura que las imágenes se ajusten al tamaño del carrusel */
-        height: auto; /* Mantiene la proporción de las imágenes */
+        height: 100%; /* Mantiene la proporción de las imágenes */
     }
 }
 
@@ -421,20 +435,17 @@ section {
     animation: slide 8s infinite; /* Cambia la duración para ajustar la velocidad */
 }
 
+
 .imagenes img {
-    width: 300px; /* Ancho de las imágenes, ajusta según sea necesario */
-    height: 300px; /* Alto de las imágenes, ajusta según sea necesario */
-    object-fit: cover; /* Mantiene la proporción de las imágenes */
+    width: 100%; /* Cada imagen ocupa el 100% del carrusel */
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin distorsión */
 }
 
 @keyframes slide {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(0); }
-    25% { transform: translateX(-100%); }
-    45% { transform: translateX(-100%); }
-    50% { transform: translateX(-200%); }
-    70% { transform: translateX(-200%); }
-    75% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
+    2% { transform: translateX(0); }     /* Primera imagen */
+    33.33% { transform: translateX(-100%); }  /* Segunda imagen */
+    66.66% { transform: translateX(-200%); }  /* Tercera imagen */
+    100% { transform: translateX(0); }   /* Vuelve a la primera imagen */
 }
 

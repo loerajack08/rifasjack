@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/edicionboletos.css') }}">
     <title>Editar Boleto</title>
 </head>
 <body>
@@ -22,8 +23,10 @@
             <option value="no_disponible" {% if boleto.status == 'no_disponible' %} selected {% endif %}>No Disponible</option>
         </select>
 
-        <label for="numero_celular">Número de Celular:</label>
-        <input type="tel" id="numero_celular" name="numero_celular" value="{{ boleto.numeroCelular }}">
+       <label for="numero_celular">Número de Celular:</label>
+       <input type="tel" id="numero_celular" name="numero_celular" 
+        value="{{ boleto.numeroCelular }}" 
+        pattern="[0-9]*" inputmode="numeric">
 
         <button type="submit">Actualizar Boleto</button>
     </form>

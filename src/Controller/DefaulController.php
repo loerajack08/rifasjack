@@ -8,11 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\DatosRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Datos;
+use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
+
+
 
 class DefaulController extends AbstractController
 {
-    #[Route('/defaul', name: 'app_defaul')]
+    #[Route('/principal', name: 'app_defaul')]
     public function index(): Response
     {
         return $this->render('Rifas.html.twig', [
@@ -90,14 +93,54 @@ class DefaulController extends AbstractController
     }
     
 
+    
+    // 🔹 RUTA PROTEGIDA: Solo accesible si la sesión está activa
     #[Route('/insertard', name: 'ADMIN')]
-    public function inserta(DatosRepository $datosRepository): Response
-    {
-        // Obtiene todos los boletos
-        $boletos = $datosRepository->findAll();
-
-        return $this->render('Adminj03.html.twig', [
-            'boletos' => $boletos,
-        ]);
-    }
-}
+   public function inserta(Request $request, DatosRepository $datosRepository): Response
+  {
+     // Verifica si el usuario está autenticado
+     if (!$request->getSession()->get('admin_authenticated')) {
+         // Redirige a la página de login si no está autenticado
+         return $this->redirectToRoute('login_admin');
+     }
+ 
+     // Si está autenticado, obtiene los boletos y muestra la página
+     $boletos = $datosRepository->findAll();
+ 
+     return $this->render('Adminj03.html.twig', [
+         'boletos' => $boletos,
+     ]);
+ }
+ 
+  
+  #[Route('/login_admin', name: 'login_admin')]
+  public function login(Request $request, Connection $connection): Response
+  {
+      if ($request->isMethod('POST')) {
+         $usuario = $request->request->get('usuario');
+         $contraseñaIngresada = $request->request->get('contraseña');
+ 
+         // Verificar que los datos se están recuperando correctamente
+         $sql = "SELECT * FROM a_login WHERE usuario = ?";
+         $usuarioDB = $connection->fetchAssociative($sql, [$usuario]);
+ 
+         if (!$usuarioDB) {
+             return new Response("❌ Acceso denegado. Usuario no encontrado.", 403);
+         }
+ 
+         // Debugging para ver la contraseña almacenada
+         file_put_contents('debug_log.txt', "Ingresada: $contraseñaIngresada \nGuardada: {$usuarioDB['contraseña']}\n", FILE_APPEND);
+ 
+         // Verificar la contraseña
+         if (!password_verify($contraseñaIngresada, $usuarioDB['contraseña'])) {
+             return new Response("❌ Acceso denegado. Contraseña incorrecta.", 403);
+         }
+ 
+         // Guardar en sesión
+         $request->getSession()->set('admin_authenticated', true);
+         return $this->redirectToRoute('ADMIN');
+     }
+ 
+     return $this->render('login_admin.html.twig');
+ }
+} 
