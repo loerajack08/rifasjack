@@ -4,7 +4,9 @@ controllers:
         namespace: App\Controller
     type: attribute
 
-app_defaul:
-  path: /principal
-  controller: App\Controller\YourController::yourAction
+app_default:
+    path: /principal
+    controller: App\Controller\DefaultController::yourAction
+
+
 
