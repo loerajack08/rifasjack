@@ -48,16 +48,6 @@ class DefaulController extends AbstractController
         ]);
     }
 
-    #[Route('/pagarP', name: 'pagar')]
-    public function listarBoleto(DatosRepository $datosRepository): Response
-    {
-        // Obtiene todos los boletos
-        $boletos = $datosRepository->findAll();
-
-        return $this->render('paypal_payment.html.twig', [
-            'bolet' => $boletos,
-        ]);
-    }
 
     #[Route('/editar', name: 'editar_boleto')]
     public function editarBoleto(Request $request, EntityManagerInterface $entityManager): Response
