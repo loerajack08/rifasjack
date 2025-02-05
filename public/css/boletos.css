@@ -91,6 +91,29 @@
     background-color: #e0f7fa;
 }
 
+.btn-pago {
+    background-color: #2196F3; /* Mismo color de fondo */
+    color: #fff; /* Texto en blanco */
+    padding: 10px 14px; /* Espaciado */
+    border: none; /* Sin borde */
+    border-radius: 10%; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor en forma de mano */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover */
+.btn-pago:hover {
+    background-color: #1e88e5;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
 /* Estilo del botón de WhatsApp */
 .btn-whatsapp {
     background-color: #2196F3; /* Color de fondo */

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,13 +8,21 @@
 </head>
 <body>
     {% block body %}
-        <h1 class="disponibles_centro" id="hello_word">*  Boletos <br> Disponibles</h1>
+        <h1 class="disponibles_centro" id="hello_word">* Boletos <br> Disponibles</h1>
+        <input type="text" id="busqueda-boleto" placeholder="Buscar boleto por número" class="busqueda">
 
         <ul class="menupp1" id="menu">
             <li><a href="{{ path('app_defaul') }}">Regresar</a></li>
         </ul>
 
-        <input type="text" id="busqueda-boleto" placeholder="Buscar boleto por número" class="busqueda">
+        
+        
+        <form action="{{ path('pagar') }}" method="POST">
+            <button type="submit">PAGOS En LINEA</button>
+        </form>
+
+        <!-- Botón para seleccionar 10 boletos libres -->
+        <button id="seleccionar-boletos" type="button">Seleccionar 10 boletos libres</button>
 
         {% if boletos is not empty %}
             <ul class="boletos-list">
@@ -26,18 +35,18 @@
                         <!-- Etiqueta asociada al checkbox -->
                         <label for="boleto-{{ boleto.id }}">
                             <span class="numero-boleto">{{ boleto.numeroBoleto }}</span>
-                             <span class="status-boleto"
-                             {% if boleto.status == 'libre' %}
-                                 style="background-color:rgb(161, 195, 47); color: white;" 
-                             {% elseif boleto.status == 'pagado' %}
-                                 style="background-color:rgb(188, 7, 7); color: white; opacity: 100%; pointer-events: none;"
-                             {% elseif boleto.status == 'apartado' %}
-                                 style="background-color:rgb(211, 100, 10); color: white;" 
-                             {% else %}
-                                 style="background-color:rgb(76, 72, 72); color: white;" 
-                             {% endif %}>
-                             {{ boleto.status == 'libre' ? 'Libre' : (boleto.status == 'pagado' ? 'Pagado' : (boleto.status == 'apartado' ? 'Apartado' : 'No Disponible')) }}
-                         </span>
+                            <span class="status-boleto"
+                            {% if boleto.status == 'libre' %}
+                                style="background-color:rgb(161, 195, 47); color: white;" 
+                            {% elseif boleto.status == 'pagado' %}
+                                style="background-color:rgb(188, 7, 7); color: white; opacity: 100%; pointer-events: none;"
+                            {% elseif boleto.status == 'apartado' %}
+                                style="background-color:rgb(211, 100, 10); color: white;" 
+                            {% else %}
+                                style="background-color:rgb(76, 72, 72); color: white;" 
+                            {% endif %}>
+                            {{ boleto.status == 'libre' ? 'Libre' : (boleto.status == 'pagado' ? 'Pagado' : (boleto.status == 'apartado' ? 'Apartado' : 'No Disponible')) }}
+                        </span>
                         </label>
                     </li>
                 {% endfor %}
@@ -46,7 +55,7 @@
             <p>No hay boletos disponibles.</p>
         {% endif %}
 
-        <button id="enviar-whatsapp" class="btn-whatsapp" disabled>Apartar <br> Boletos</button>
+        <button id="enviar-whatsapp" class="btn-whatsapp" disabled>comprar por <br> trasferencia</button>
 
         <!-- Formulario emergente -->
         <div id="formulario-emergente" class="modal" style="display: none;">
@@ -62,10 +71,8 @@
 
                     <label for="ciudad">Ciudad:</label>
                     <input type="text" id="ciudad" name="ciudad" required>
-                    
-                    <button type="submit">PAGOS EN LINEA</button>
+
                     <button type="submit">Enviar a WhatsApp</button>
-                    
                 </form>
             </div>
         </div>
@@ -73,6 +80,48 @@
 
     {% block javascripts %}
         <script src="{{ asset('js/boletos.js') }}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const boletos = document.querySelectorAll('.boleto-checkbox');
+                const btnWhatsapp = document.getElementById('enviar-whatsapp');
+                const btnSeleccionar = document.getElementById('seleccionar-boletos');
+            
+                // Función para habilitar o deshabilitar el botón de WhatsApp
+                function actualizarEstadoBoton() {
+                    const seleccionados = Array.from(boletos).filter(boleto => boleto.checked);
+                    if (btnWhatsapp) {
+                        btnWhatsapp.disabled = seleccionados.length === 0;
+                    }
+                }
+            
+                // Evento para seleccionar automáticamente 10 boletos libres
+                if (btnSeleccionar) {
+                    btnSeleccionar.addEventListener('click', () => {
+                        let boletosLibres = Array.from(boletos).filter(boleto => !boleto.disabled); // Solo los libres
+            
+                        if (boletosLibres.length > 0) {
+                            let seleccionados = boletosLibres
+                                .sort(() => 0.5 - Math.random()) // Mezclar aleatoriamente
+                                .slice(0, 10); // Tomar los primeros 10
+            
+                            // Marcar los boletos seleccionados y disparar evento 'change'
+                            seleccionados.forEach(boleto => {
+                                boleto.checked = true;
+                                boleto.dispatchEvent(new Event('change')); // Disparar evento
+                            });
+            
+                            actualizarEstadoBoton(); // Habilitar el botón de compra si hay boletos seleccionados
+                        }
+                    });
+                }
+            
+                // Evento para habilitar el botón de WhatsApp cuando se selecciona algún boleto manualmente
+                boletos.forEach(boleto => {
+                    boleto.addEventListener('change', actualizarEstadoBoton);
+                });
+            });
+        </script>
     {% endblock %}
 </body>
 </html>
+

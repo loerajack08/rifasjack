@@ -6,17 +6,46 @@
     <title>Seleccionar Boleto para Editar</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
+
 <body>
+    
     <h1>Seleccionar Boleto para Editar</h1>
-    <form action="{{ path('editar_boleto') }}" method="get">
-        <label for="numero_boleto">Número de Boleto:</label>
-        <select id="numero_boleto" name="id" required>
-            <option value="" disabled selected>Selecciona un boleto</option>
-            {% for boleto in boletos %}
-                <option value="{{ boleto.id }}">{{ boleto.numeroBoleto }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Editar</button>
-    </form>
+    <h1 class="disponibles_centro" id="hello_word">* Boletos <br> Disponibles</h1>
+
+    <!-- Barra de búsqueda -->
+    <input type="text" id="busqueda-boleto" placeholder="Buscar boleto por número" class="busqueda">
+
+    <!-- Contenedor de boletos en cuadrícula -->
+    <div id="contenedor-boletos" class="contenedor-boletos">
+        {% for boleto in boletos %}
+            <div class="boleto-item" data-id="{{ boleto.id }}">
+                <span class="numero-boleto">{{ boleto.numeroBoleto }}</span>
+                <a href="{{ path('editar_boleto', {'id': boleto.id}) }}" class="editar-btn">Editar</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Script de búsqueda -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputBusqueda = document.getElementById("busqueda-boleto");
+            const contenedorBoletos = document.getElementById("contenedor-boletos");
+            const boletosItems = [...contenedorBoletos.children]; // Obtener todos los elementos de boleto
+
+            inputBusqueda.addEventListener("input", () => {
+                const query = inputBusqueda.value.trim().toLowerCase();
+                
+                boletosItems.forEach(boletoItem => {
+                    const numeroBoleto = boletoItem.querySelector(".numero-boleto").textContent.toLowerCase();
+                    if (numeroBoleto.includes(query)) {
+                        boletoItem.style.display = "block";  // Mostrar el boleto
+                    } else {
+                        boletoItem.style.display = "none";  // Ocultar el boleto
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
