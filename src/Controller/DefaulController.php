@@ -10,11 +10,19 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Datos;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 
 class DefaulController extends AbstractController
 {
+    #[Route('/', name: 'home_redirect')]
+    public function redirectToPrincipal(): RedirectResponse
+    {
+        // Redirige a la página principal
+        return $this->redirectToRoute('app_defaul');
+    }
+
     #[Route('/principal', name: 'app_defaul')]
     public function index(): Response
     {
